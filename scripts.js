@@ -1,74 +1,57 @@
-// scripts.js
+document.addEventListener('DOMContentLoaded', () => {
+    // Função para controlar o carrossel
+    const carousel = document.querySelector('.carousel');
+    const carouselItems = document.querySelectorAll('.carousel-item');
+    let currentIndex = 0;
 
-function downloadPDF(url, filename) {
-    // Cria um link temporário para download
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = filename;
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
-}
-
-function openWhatsApp(url) {
-    window.location.href = url;
-}
-function openWhatsApp() {
-    // Substitua pelo número real do WhatsApp
-    window.location.href = 'https://wa.me/19999670165'; 
-}
-
-// Adiciona eventos de clique às divs com data-pdf e data-whatsapp
-document.querySelectorAll('.option').forEach(option => {
-    option.addEventListener('click', () => {
-        const pdfUrl = option.getAttribute('data-pdf');
-        const whatsappUrl = option.getAttribute('data-whatsapp');
-
-        if (pdfUrl) {
-            downloadPDF(pdfUrl, pdfUrl.split('/').pop());
-        } else if (whatsappUrl) {
-            openWhatsApp(whatsappUrl);
+    function showSlide(index) {
+        if (index >= carouselItems.length) {
+            currentIndex = 0;
+        } else if (index < 0) {
+            currentIndex = carouselItems.length - 1;
+        } else {
+            currentIndex = index;
         }
+        carousel.style.transform = `translateX(-${currentIndex * 100}%)`;
+    }
+
+    // Avançar slides a cada 3 segundos
+    setInterval(() => {
+        showSlide(currentIndex + 1);
+    }, 3000);
+
+    // Funcionalidade dos botões
+    document.querySelectorAll('.action-button').forEach(button => {
+        button.addEventListener('click', (event) => {
+            const target = event.target;
+            const section = target.closest('.option');
+
+            if (section) {
+                if (section.classList.contains('catalogo')) {
+                    window.location.href = '/catalogo.pdf'; // Substitua pelo link real do PDF
+                } else if (section.classList.contains('agendamento')) {
+                    window.open('https://api.whatsapp.com/send?phone=1234567890', '_blank'); // Substitua pelo link real do WhatsApp
+                }
+            }
+        });
     });
+
+    // Efeito de desfoque e escala na foto
+    const profilePhoto = document.querySelector('.profile-photo');
+    let blurStartPoint = 95;
+
+    function handleScroll() {
+        const scrollY = window.scrollY;
+        const scale = Math.max(1 - scrollY / 500, 0.8); // Ajusta o fator de escala conforme necessário
+
+        if (scrollY > blurStartPoint) {
+            profilePhoto.classList.add('blurred');
+        } else {
+            profilePhoto.classList.remove('blurred');
+        }
+
+        profilePhoto.style.transform = `scale(${scale})`;
+    }
+
+    window.addEventListener('scroll', handleScroll);
 });
-
-// Carrossel automático com imagens
-let currentCarouselIndex = 0;
-const carouselItems = document.querySelectorAll('.carousel-item');
-
-function showCarouselItem(index) {
-    carouselItems.forEach((item, i) => {
-        item.style.transform = `translateX(-${index * 100}%)`;
-    });
-}
-
-function nextCarouselItem() {
-    currentCarouselIndex = (currentCarouselIndex + 1) % carouselItems.length;
-    showCarouselItem(currentCarouselIndex);
-}
-
-const carousel = document.querySelector('.carousel');
-carousel.style.transition = 'transform 0.5s ease-in-out';
-
-setInterval(nextCarouselItem, 3000); // Troca a cada 3 segundos
-
-// Efeito de desfoque na foto
-const profilePhoto = document.querySelector('.profile-photo');
-const blurStartPoint = 95;
-const shrinkStartPoint = 0;
-
-function handleScroll() {
-    if (window.scrollY > blurStartPoint) {
-        profilePhoto.classList.add('blurred');
-    } else {
-        profilePhoto.classList.remove('blurred');
-    }
-
-    if (window.scrollY > shrinkStartPoint) {
-        profilePhoto.classList.add('shrink');
-    } else {
-        profilePhoto.classList.remove('shrink');
-    }
-}
-
-window.addEventListener('scroll', handleScroll);

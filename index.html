@@ -1,82 +1,75 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nayra Ananias</title>
-    <link rel="stylesheet" href="css/styles-mobile.css">
+    <title>Nayra Ananias - Design de Cílios, Sobrancelhas e Maquiagens</title>
+    <link rel="stylesheet" href="css/styles-mobile.css" media="(max-width: 767px)">
+    <link rel="stylesheet" href="css/styles-tablet.css" media="(min-width: 768px) and (max-width: 1024px)">
+    <link rel="stylesheet" href="css/styles-desktop.css" media="(min-width: 1025px)">
 </head>
-
 <body>
     <div class="container">
-        <section class="profile">
+        <header class="profile">
             <div class="profile-photo-wrapper">
-
-                <img src="images/fi.png" alt="Foto de Nayra Ananias" class="profile-photo">
+                <img src="images/mobile/profile.jpg" alt="Nayra Ananias" class="profile-photo">
             </div>
-            <h1 class="profile-name">Olá maravilhosa!</h1>
-            <p class="profile-subtitle">Essa página tem todos os links que você precisa para prosseguir. <br> <span
-                    class="destino"><u>Clique no destino desejado!</u></span></p>
+            <div class="profile-name">Nayra Ananias</div>
+            <div class="profile-subtitle">Especialista em Cílios e Maquiagens</div>
+        </header>
+
+        <section id="catalogo" class="option catalogo">
+            <h2 class="section-title">Catálogo de Serviços</h2>
+            <div class="button-container">
+                <button class="action-button" onclick="window.location.href='/catalogo.pdf'">Clique e baixe o catálogo</button>
+            </div>
         </section>
 
-        <section class="options">
-            <div class="section-title">Catálogo de Serviço</div>
-            <div class="option" id="catalogo" data-pdf="PDFs/Catalogo Nayra Ananias.pdf">
-                <img src="images/agendamentos3x.png" alt="Catálogo de Serviço">
-                <div class="button-container">
-                    <button class="action-button">Ver catálogo</button>
-                </div>
-            </div>
-
-            <div class="section-title">Cursos Presenciais</div>
-            <div class="option" id="curso-1" data-pdf="PDFs/Curso de Lash Iniciante.pdf">
-                <img src="images/Lashiniciante.png" alt="Curso 1">
-                <div class="button-container">
-                    <button class="action-button">Saiba mais</button>
-                </div>
-            </div>
-            <div class="option" id="curso-2" data-pdf="PDFs/By Perfect Lash.pdf">
-                <img src="images/Byperfectlash.png" alt="Curso 2">
-                <div class="button-container">
-                    <button class="action-button">Saiba mais</button>
-                </div>
-            </div>
-
-            <div class="section-title">Agendamentos</div>
-            <div class="option" id="agendamentos" data-whatsapp="https://wa.me/19999670165">
-                <img src="images/horario3x.png" alt="Agendamentos">
-                <div class="button-container">
-                    <button class="action-button">Agendar horário</button>
-                </div>
-            </div>
-
-            <div class="section-title">Feedacks</div>
-            <div class="carousel">
-                <div class="carousel-item">
-                    <img src="images/cliente1.jpg" alt="Cliente 1">
-                    <p>"Ótimo serviço!" - Cliente A</p>
-                </div>
-                <!-- Adicione novos itens aqui -->
+        <section id="curso1" class="option curso1">
+            <h2 class="section-title">Curso Presencial 1</h2>
+            <div class="button-container">
+                <button class="action-button">Saiba mais</button>
             </div>
         </section>
+
+        <section id="curso2" class="option curso2">
+            <div class="button-container">
+                <button class="action-button">Saiba mais</button>
+            </div>
+        </section>
+
+        <section id="agendamento" class="option agendamento">
+            <h2 class="section-title">Agendamentos</h2>
+            <div class="button-container">
+                <button class="action-button" onclick="window.open('https://api.whatsapp.com/send?phone=19999670165', '_blank')">Agende seu serviço</button>
+            </div>
+        </section>
+
+        <section id="feedbacks" class="carousel">
+            <div class="carousel-item">
+                <img src="images/mobile/feedback1.jpg" alt="Feedback 1">
+                <p>Feedback 1: Excelente atendimento!</p>
+            </div>
+            <div class="carousel-item">
+                <img src="images/mobile/feedback2.jpg" alt="Feedback 2">
+                <p>Feedback 2: Serviço maravilhoso!</p>
+            </div>
+            <!-- Adicione mais itens conforme necessário -->
+        </section>
+        
+        <footer class="footer">
+            <div class="footer-content">
+                <p class="footer-text">Trabalho com amor para garantir sua auto estima</p>
+                <div class="footer-credits">
+                    <p>Feito por Gustavo Cazzine</p>
+                    <a href="https://instagram.com/gustavocazzine" class="instagram-link" target="_blank">
+                        <img src="images/instagram-icon.png" alt="Instagram" class="instagram-icon">
+                    </a>
+                </div>
+            </div>
+        </footer>
     </div>
+
     <script src="scripts.js"></script>
-
-    <!-- Rodapé -->
-    <footer class="footer">
-        <div class="footer-content">
-            <p class="footer-text">Trabalho com amor </br>para garantir sua auto estima</p>
-            <div class="footer-credits">
-                <p>Feito por Gustavo Cazzine</p>
-                <a href="https://www.instagram.com/gustavo.cazzine" target="_blank" class="instagram-link">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram"
-                        class="instagram-icon">
-                </a>
-            </div>
-        </div>
-    </footer>
-
 </body>
-
 </html>

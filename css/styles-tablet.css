@@ -48,7 +48,7 @@ body {
 }
 
 .profile-name {
-    font-size: 30px;
+    font-size: 40px;
     font-family: 'Playfair Display', serif;
     color: #6b4f4f;
     background: rgba(255, 255, 255, 0);
@@ -61,14 +61,14 @@ body {
 }
 
 .profile-subtitle {
-    font-size: 18px;
+    font-size: 22px;
     padding: 10px;
     color: rgba(0, 0, 0, 0.678);
     margin-top: 10px;
 }
 
 .destino {
-    font-size: 1.2em;
+    font-size: 1.5em;
     color: black;
 }
 
@@ -83,34 +83,34 @@ body {
     background-position: center;
     background-repeat: no-repeat;
     border-radius: 15px;
-    margin: 20px auto 30px auto;
+    margin: 20px auto 50px auto;
     box-shadow: none;
     text-align: center;
     position: relative;
     transition: transform 0.3s, border-color 0.3s;
     box-sizing: border-box;
     width: calc(100% - 20px);
-    height: 200px; /* Ajuste conforme necessário */
+    height: 300px; /* Ajuste conforme necessário */
 }
 
 .option.catalogo {
-    background-image: url('../images/mobile/image4.png');
+    background-image: url('../images/tablet/image4.png');
 }
 
 .option.curso1 {
-    background-image: url('../images/mobile/image2.png');
+    background-image: url('../images/tablet/image2.png');
 }
 
 .option.curso2 {
-    background-image: url('../images/mobile/image1.png');
+    background-image: url('../images/tablet/image1.png');
 }
 
 .option.agendamento {
-    background-image: url('../images/mobile/image3.png');
+    background-image: url('../images/tablet/image3.png');
 }
 
 .option.feedbacks {
-    background-image: url('../images/mobile/feedbacks/feedbacks.jpg');
+    background-image: url('../images/tablet/feedbacks/feedbacks.jpg');
 }
 
 .option:hover {
@@ -126,10 +126,10 @@ body {
 }
 
 .section-title {
-    font-size: 24px;
+    font-size: 32px;
     font-family: 'Playfair Display', serif;
     color: #6b4f4f;
-    margin: 40px 0;
+    margin: 60px 0;
     position: relative;
     text-align: center;
 }
@@ -167,9 +167,9 @@ body {
     color: #E86583;
     border: 2px solid #E86583;
     border-radius: 10px;
-    padding: 10px 20px;
+    padding: 12px 24px;
     cursor: pointer;
-    font-size: 16px;
+    font-size: 20px;
     transition: background-color 0.3s, color 0.3s, transform 0.3s;
 }
 
@@ -177,6 +177,20 @@ body {
     background-color: #E86583;
     color: #ffffff;
     transform: scale(1.05);
+}
+
+@media (max-width: 1200px) {
+    .action-button {
+        font-size: 18px;
+        padding: 10px 20px;
+    }
+}
+
+@media (max-width: 992px) {
+    .action-button {
+        font-size: 16px;
+        padding: 8px 16px;
+    }
 }
 
 .carousel {
@@ -187,7 +201,7 @@ body {
 
 .carousel-item {
     flex: 0 0 100%;
-    padding: 10px;
+    padding: 20px;
     box-sizing: border-box;
     text-align: center;
 }
@@ -222,7 +236,7 @@ body {
 }
 
 .footer-text {
-    font-size: 16px;
+    font-size: 20px;
     font-family: 'Poppins', sans-serif;
     color: #3a3a3a;
     margin-bottom: 10px;
@@ -237,7 +251,7 @@ body {
 }
 
 .footer-credits p {
-    font-size: 14px;
+    font-size: 18px;
     font-family: 'Poppins', sans-serif;
     color: #3a3a3a;
     margin: 0;
@@ -255,7 +269,7 @@ body {
 }
 
 .instagram-icon {
-    width: 20px;
+    width: 24px;
     height: auto;
     margin-left: 5px;
     transition: transform 0.3s;
