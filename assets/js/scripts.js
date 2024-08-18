@@ -31,21 +31,6 @@ document.addEventListener('DOMContentLoaded', function () {
         }, 3000);
     }
 
-    function downloadPDF(url, filename) {
-        console.log("Iniciando download:", url, filename); // Log para verificação
-        const a = document.createElement('a');
-        a.href = url;
-        a.download = filename;
-        document.body.appendChild(a);
-        a.click();
-        document.body.removeChild(a);
-    }
-    
-    function openWhatsApp() {
-        console.log("Redirecionando para o WhatsApp"); // Log para verificação
-        window.location.href = 'https://wa.me/19999670165';
-    }
-
     // Executa a verificação de scroll e resize ao carregar a página
     handleScroll();
     window.addEventListener('scroll', handleScroll);
@@ -54,3 +39,21 @@ document.addEventListener('DOMContentLoaded', function () {
     // Inicializa o carrossel de feedbacks
     initCarousel();
 });
+
+function openWhatsApp() {
+    const phoneNumber = '5519981559831'; // Substitua pelo seu número de telefone no formato internacional, sem o +.
+    const message = 'Olá, gostaria de agendar um horário.'; // Mensagem padrão, se necessário.
+    const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+
+    window.open(url, '_blank');
+}
+
+function downloadPDF(pdfUrl) {
+    // Cria um link temporário
+    const link = document.createElement('a');
+    link.href = pdfUrl;
+    link.download = pdfUrl.split('/').pop(); // Usa o nome do arquivo do URL
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+}

@@ -137,29 +137,25 @@ body {
 }
 
 .option.catalogo {
-    background-image: url('../images/tablet/image4.png');
+    background-image: url('/assets/images/tablet/image4.png');
 }
 
 .option.curso1 {
-    background-image: url('../images/tablet/image2.png');
+    background-image: url('/assets/images/tablet/image2.png');
     margin-bottom: 40px;
     /* Aumenta o espaçamento abaixo do curso 1 */
 
 }
 
 .option.curso2 {
-    background-image: url('../images/tablet/image1.png');
+    background-image: url('/assets/images/tablet/image1.png');
     margin-bottom: 40px;
     /* Aumenta o espaçamento abaixo do curso 1 */
 
 }
 
 .option.agendamento {
-    background-image: url('../images/tablet/image3.png');
-}
-
-.option.feedbacks {
-    background-image: url('../images/tablet/feedbacks/feedbacks.jpg');
+    background-image: url('/assets/images/tablet/image3.png');
 }
 
 .option:hover {
