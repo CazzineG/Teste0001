@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;500;700&display=swap');
-
 body {
     font-family: 'Poppins', sans-serif;
     margin: 0;
@@ -7,12 +5,17 @@ body {
     box-sizing: border-box;
     background-color: #f9f6f7;
     color: #3a3a3a;
+    overflow-x: hidden;
+    /* Impede o scroll horizontal */
 }
 
 .container {
-    padding-top: 13vh;
     position: relative;
     z-index: 1;
+    margin: auto;
+    /* Centraliza o container */
+    margin-left: 40vw;
+    /* Move o container mais para a direita */
 }
 
 .profile {
@@ -23,13 +26,17 @@ body {
 
 .profile-photo-wrapper {
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
+    top: 40vh;
+    left: 10vw;
+    /* Ajustado para afastar do canto esquerdo */
+    width: 30vw;
+    /* Ajusta a largura da foto para desktop */
     height: 100vh;
+    /* Ajusta a altura da foto para desktop */
+    transform: translateY(-50%);
+    /* Ajusta o deslocamento vertical */
     z-index: -1;
     overflow: hidden;
-    transition: filter 1s, transform 1s;
 }
 
 .profile-photo {
@@ -38,30 +45,24 @@ body {
     object-fit: cover;
 }
 
-.profile-photo.blurred {
-    filter: blur(2px);
-}
-
-.profile-photo.shrink {
-    transform: scale(1);
-    transition: 0.1s;
-}
-
 .profile-name {
-    font-size: 40px;
+    font-size: 36px;
+    /* Ajusta o tamanho da fonte para desktop */
     font-family: 'Playfair Display', serif;
     color: #6b4f4f;
     background: rgba(255, 255, 255, 0);
     padding: 10px;
     border-radius: 15px;
-    margin-top: 260px;
+    margin-top: 220px;
+    /* Ajusta a distância da foto */
     position: relative;
     z-index: 1;
     text-shadow: none;
 }
 
 .profile-subtitle {
-    font-size: 22px;
+    font-size: 20px;
+    /* Ajusta o tamanho da fonte para desktop */
     padding: 10px;
     color: rgba(0, 0, 0, 0.678);
     margin-top: 10px;
@@ -69,11 +70,14 @@ body {
 
 .destino {
     font-size: 1.5em;
+    /* Ajusta o tamanho da fonte para desktop */
     color: black;
 }
 
 .options {
-    width: 100%;
+    position: relative;
+    width: 60vw;
+    /* Ajusta a largura para desktop */
     padding: 0;
     box-sizing: border-box;
 }
@@ -83,14 +87,30 @@ body {
     background-position: center;
     background-repeat: no-repeat;
     border-radius: 15px;
-    margin: 20px auto 50px auto;
+    margin: 20px auto 30px auto;
     box-shadow: none;
     text-align: center;
     position: relative;
     transition: transform 0.3s, border-color 0.3s;
     box-sizing: border-box;
-    width: calc(100% - 20px);
-    height: 400px; /* Ajuste conforme necessário */
+    width: calc(100% - 40px);
+    /* Ajusta a largura das divs */
+    max-width: 600px;
+    /* Adiciona um limite máximo de largura */
+    height: 250px;
+    /* Ajusta a altura das divs */
+    border: 2px solid #E86583;
+    /* Borda rosa igual aos botões */
+}
+
+.option.catalogo,
+.option.curso1,
+.option.curso2,
+.option.agendamento,
+.option.feedbacks {
+    margin-top: 20px;
+    /* Adiciona espaço entre as opções */
+    margin-bottom: 40px;
 }
 
 .option.catalogo {
@@ -99,14 +119,18 @@ body {
 
 .option.curso1 {
     background-image: url('../images/desktop/image2.png');
+    margin-bottom: 40px;
+    /* Aumenta o espaçamento abaixo do curso 1 */
 }
 
 .option.curso2 {
     background-image: url('../images/desktop/image1.png');
+    margin-bottom: 40px;
+    /* Aumenta o espaçamento abaixo do curso 2 */
 }
 
 .option.agendamento {
-    background-image: url('../images/desktop/image3.png;
+    background-image: url('../images/desktop/image3.png');
 }
 
 .option.feedbacks {
@@ -121,17 +145,18 @@ body {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    border: 2px solid #E86583;
-    border-radius: 15px;
 }
 
 .section-title {
-    font-size: 32px;
+    font-size: 1.5em;
+    /* Ajusta o tamanho da fonte para desktop */
     font-family: 'Playfair Display', serif;
     color: #6b4f4f;
-    margin: 60px 0;
+    margin: 40px 0;
     position: relative;
     text-align: center;
+    padding: 0 40px;
+    /* Ajusta o espaçamento interno para desktop */
 }
 
 .section-title::before,
@@ -139,19 +164,24 @@ body {
     content: '';
     position: absolute;
     top: 50%;
-    width: 15%;
     height: 1px;
-    margin: 0% 7% 0% 7%;
+    margin: 0;
     background-color: #6b4f4f;
     transform: translateY(-50%);
 }
 
 .section-title::before {
     left: 0;
+    width: 10%;
+    /* Ajusta o tamanho da linha para desktop */
+    margin: 0% 50% 0% 20%;
 }
 
 .section-title::after {
     right: 0;
+    width: 10%;
+    /* Ajusta o tamanho da linha para desktop */
+    margin: 0% 20% 0% 20%;
 }
 
 .button-container {
@@ -168,8 +198,10 @@ body {
     border: 2px solid #E86583;
     border-radius: 10px;
     padding: 12px 24px;
+    /* Ajusta o padding para desktop */
     cursor: pointer;
     font-size: 20px;
+    /* Ajusta o tamanho da fonte para desktop */
     transition: background-color 0.3s, color 0.3s, transform 0.3s;
 }
 
@@ -179,29 +211,21 @@ body {
     transform: scale(1.05);
 }
 
-@media (max-width: 1200px) {
-    .action-button {
-        font-size: 18px;
-        padding: 10px 20px;
-    }
-}
-
-@media (max-width: 992px) {
-    .action-button {
-        font-size: 16px;
-        padding: 8px 16px;
-    }
-}
-
 .carousel {
     display: flex;
     overflow: hidden;
     width: 100%;
 }
 
+.carousel-container {
+    display: flex;
+    transition: transform 0.5s ease;
+}
+
 .carousel-item {
     flex: 0 0 100%;
     padding: 20px;
+    /* Ajustado para desktop */
     box-sizing: border-box;
     text-align: center;
 }
@@ -216,65 +240,4 @@ body {
     font-style: italic;
     color: #3a3a3a;
     font-family: 'Playfair Display', serif;
-}
-
-.footer {
-    background-color: #f9f6f7;
-    padding: 20px;
-    text-align: center;
-    position: relative;
-    width: 100%;
-    box-sizing: border-box;
-    z-index: 1;
-}
-
-.footer-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-
-.footer-text {
-    font-size: 20px;
-    font-family: 'Poppins', sans-serif;
-    color: #3a3a3a;
-    margin-bottom: 10px;
-    line-height: 1.4;
-}
-
-.footer-credits {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-}
-
-.footer-credits p {
-    font-size: 18px;
-    font-family: 'Poppins', sans-serif;
-    color: #3a3a3a;
-    margin: 0;
-}
-
-.instagram-link {
-    display: flex;
-    align-items: center;
-    text-decoration: none;
-    color: #E86583;
-}
-
-.instagram-link:hover {
-    text-decoration: underline;
-}
-
-.instagram-icon {
-    width: 24px;
-    height: auto;
-    margin-left: 5px;
-    transition: transform 0.3s;
-}
-
-.instagram-link:hover .instagram-icon {
-    transform: scale(1.1);
 }

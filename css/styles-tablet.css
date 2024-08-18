@@ -10,7 +10,8 @@ body {
 }
 
 .container {
-    padding-top: 13vh;
+    padding-top: 25vh;
+    /* Ajustado para tablets */
     position: relative;
     z-index: 1;
 }
@@ -23,10 +24,15 @@ body {
 
 .profile-photo-wrapper {
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100vh;
+    top: -120px;
+    /* Ajuste para tablets, ajusta a posição da foto */
+    left: 50%;
+    width: 50vw;
+    /* Ajuste para tablets */
+    height: 50vh;
+    /* Ajuste para tablets */
+    transform: translateX(-50%);
+    /* Centraliza horizontalmente */
     z-index: -1;
     overflow: hidden;
     transition: filter 1s, transform 1s;
@@ -38,8 +44,18 @@ body {
     object-fit: cover;
 }
 
-.profile-photo.blurred {
-    filter: blur(2px);
+/* CSS Tablet */
+@media (max-width: 1024px) and (min-width: 768px) {
+    .profile-photo-wrapper {
+        top: -50px;
+        /* Ajuste para posicionar mais acima na página */
+    }
+
+
+    .profile-photo.blurred {
+        filter: blur(2px);
+        /* Aplica desfoque */
+    }
 }
 
 .profile-photo.shrink {
@@ -48,27 +64,38 @@ body {
 }
 
 .profile-name {
-    font-size: 40px;
+    font-size: 30px;
+    /* Ajustado para tablet */
     font-family: 'Playfair Display', serif;
     color: #6b4f4f;
     background: rgba(255, 255, 255, 0);
     padding: 10px;
     border-radius: 15px;
-    margin-top: 260px;
+    margin-top: 250px;
+    /* Ajusta a distância da foto */
     position: relative;
     z-index: 1;
     text-shadow: none;
 }
 
+.profile-description {
+    font-size: 20px;
+    /* Ajustado para tablet */
+    color: #6b4f4f;
+    margin-top: 20px;
+}
+
 .profile-subtitle {
-    font-size: 22px;
-    padding: 10px;
+    font-size: 20px;
+    /* Ajustado para tablet */
     color: rgba(0, 0, 0, 0.678);
     margin-top: 10px;
+    padding: 10px;
 }
 
 .destino {
-    font-size: 1.5em;
+    font-size: 1.2em;
+    /* Ajustado para tablets */
     color: black;
 }
 
@@ -83,14 +110,30 @@ body {
     background-position: center;
     background-repeat: no-repeat;
     border-radius: 15px;
-    margin: 20px auto 50px auto;
+    margin: 20px auto;
     box-shadow: none;
     text-align: center;
     position: relative;
     transition: transform 0.3s, border-color 0.3s;
     box-sizing: border-box;
-    width: calc(100% - 20px);
-    height: 300px; /* Ajuste conforme necessário */
+    width: calc(100% - 40px);
+    /* Diminui a largura das divs */
+    max-width: 600px;
+    /* Adiciona um limite máximo de largura */
+    height: 250px;
+    /* Aumenta a altura das divs */
+    border: 2px solid #E86583;
+    /* Borda rosa igual aos botões */
+}
+
+.option.catalogo,
+.option.curso1,
+.option.curso2,
+.option.agendamento,
+.option.feedbacks {
+    margin-top: 20px;
+    /* Adiciona espaço entre as opções */
+    margin-bottom: 40px;
 }
 
 .option.catalogo {
@@ -99,10 +142,16 @@ body {
 
 .option.curso1 {
     background-image: url('../images/tablet/image2.png');
+    margin-bottom: 40px;
+    /* Aumenta o espaçamento abaixo do curso 1 */
+
 }
 
 .option.curso2 {
     background-image: url('../images/tablet/image1.png');
+    margin-bottom: 40px;
+    /* Aumenta o espaçamento abaixo do curso 1 */
+
 }
 
 .option.agendamento {
@@ -121,17 +170,18 @@ body {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    border: 2px solid #E86583;
-    border-radius: 15px;
 }
 
 .section-title {
-    font-size: 32px;
+    font-size: 1.3em;
+    /* Ajustado para tablet */
     font-family: 'Playfair Display', serif;
     color: #6b4f4f;
-    margin: 60px 0;
+    margin: 40px 0;
     position: relative;
     text-align: center;
+    padding: 0 20px;
+    /* Ajusta o espaçamento interno */
 }
 
 .section-title::before,
@@ -139,24 +189,47 @@ body {
     content: '';
     position: absolute;
     top: 50%;
-    width: 15%;
     height: 1px;
-    margin: 0% 7% 0% 7%;
+    margin: 0;
     background-color: #6b4f4f;
     transform: translateY(-50%);
 }
 
 .section-title::before {
     left: 0;
+    width: 15%;
+    /* Ajusta o tamanho da linha para tablets */
 }
 
 .section-title::after {
     right: 0;
+    width: 15%;
+    /* Ajusta o tamanho da linha para tablets */
+}
+
+@media (max-width: 1024px) and (min-width: 768px) {
+
+    .section-title::before,
+    .section-title::after {
+        width: 20%;
+        /* Ajusta o tamanho da linha para tamanhos de tablets menores */
+        margin: 0px 10% 0px 10%;
+    }
+}
+
+@media (max-width: 768px) {
+
+    .section-title::before,
+    .section-title::after {
+        width: 10%;
+        /* Ajusta o tamanho da linha para tablets menores */
+    }
 }
 
 .button-container {
     position: absolute;
-    bottom: -15px;
+    bottom: -22px;
+    /* Ajusta o posicionamento dos botões */
     left: 50%;
     transform: translateX(-50%);
     z-index: 1;
@@ -167,9 +240,11 @@ body {
     color: #E86583;
     border: 2px solid #E86583;
     border-radius: 10px;
-    padding: 12px 24px;
+    padding: 10px 20px;
+    /* Ajustado para tablet */
     cursor: pointer;
-    font-size: 20px;
+    font-size: 18px;
+    /* Ajustado para tablet */
     transition: background-color 0.3s, color 0.3s, transform 0.3s;
 }
 
@@ -179,29 +254,21 @@ body {
     transform: scale(1.05);
 }
 
-@media (max-width: 1200px) {
-    .action-button {
-        font-size: 18px;
-        padding: 10px 20px;
-    }
-}
-
-@media (max-width: 992px) {
-    .action-button {
-        font-size: 16px;
-        padding: 8px 16px;
-    }
-}
-
 .carousel {
     display: flex;
     overflow: hidden;
     width: 100%;
 }
 
+.carousel-container {
+    display: flex;
+    transition: transform 0.5s ease;
+}
+
 .carousel-item {
     flex: 0 0 100%;
     padding: 20px;
+    /* Ajustado para tablet */
     box-sizing: border-box;
     text-align: center;
 }
@@ -216,65 +283,4 @@ body {
     font-style: italic;
     color: #3a3a3a;
     font-family: 'Playfair Display', serif;
-}
-
-.footer {
-    background-color: #f9f6f7;
-    padding: 20px;
-    text-align: center;
-    position: relative;
-    width: 100%;
-    box-sizing: border-box;
-    z-index: 1;
-}
-
-.footer-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-
-.footer-text {
-    font-size: 20px;
-    font-family: 'Poppins', sans-serif;
-    color: #3a3a3a;
-    margin-bottom: 10px;
-    line-height: 1.4;
-}
-
-.footer-credits {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-}
-
-.footer-credits p {
-    font-size: 18px;
-    font-family: 'Poppins', sans-serif;
-    color: #3a3a3a;
-    margin: 0;
-}
-
-.instagram-link {
-    display: flex;
-    align-items: center;
-    text-decoration: none;
-    color: #E86583;
-}
-
-.instagram-link:hover {
-    text-decoration: underline;
-}
-
-.instagram-icon {
-    width: 24px;
-    height: auto;
-    margin-left: 5px;
-    transition: transform 0.3s;
-}
-
-.instagram-link:hover .instagram-icon {
-    transform: scale(1.1);
 }

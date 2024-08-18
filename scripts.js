@@ -1,57 +1,56 @@
-document.addEventListener('DOMContentLoaded', () => {
-    // Função para controlar o carrossel
-    const carousel = document.querySelector('.carousel');
-    const carouselItems = document.querySelectorAll('.carousel-item');
-    let currentIndex = 0;
-
-    function showSlide(index) {
-        if (index >= carouselItems.length) {
-            currentIndex = 0;
-        } else if (index < 0) {
-            currentIndex = carouselItems.length - 1;
-        } else {
-            currentIndex = index;
-        }
-        carousel.style.transform = `translateX(-${currentIndex * 100}%)`;
-    }
-
-    // Avançar slides a cada 3 segundos
-    setInterval(() => {
-        showSlide(currentIndex + 1);
-    }, 3000);
-
-    // Funcionalidade dos botões
-    document.querySelectorAll('.action-button').forEach(button => {
-        button.addEventListener('click', (event) => {
-            const target = event.target;
-            const section = target.closest('.option');
-
-            if (section) {
-                if (section.classList.contains('catalogo')) {
-                    window.location.href = '/catalogo.pdf'; // Substitua pelo link real do PDF
-                } else if (section.classList.contains('agendamento')) {
-                    window.open('https://api.whatsapp.com/send?phone=1234567890', '_blank'); // Substitua pelo link real do WhatsApp
-                }
-            }
-        });
-    });
-
-    // Efeito de desfoque e escala na foto
+document.addEventListener('DOMContentLoaded', function () {
     const profilePhoto = document.querySelector('.profile-photo');
-    let blurStartPoint = 95;
+    const breakpoint = window.matchMedia('(max-width: 1024px)');
 
     function handleScroll() {
-        const scrollY = window.scrollY;
-        const scale = Math.max(1 - scrollY / 500, 0.8); // Ajusta o fator de escala conforme necessário
-
-        if (scrollY > blurStartPoint) {
-            profilePhoto.classList.add('blurred');
+        if (breakpoint.matches) {
+            if (window.scrollY > 95) {
+                profilePhoto.classList.add('blurred');
+            } else {
+                profilePhoto.classList.remove('blurred');
+            }
         } else {
             profilePhoto.classList.remove('blurred');
         }
-
-        profilePhoto.style.transform = `scale(${scale})`;
     }
 
+    function handleResize() {
+        handleScroll();
+    }
+
+    function initCarousel() {
+        const carouselContainer = document.querySelector('.carousel-container');
+        const carouselItems = document.querySelectorAll('.carousel-item');
+        const totalItems = carouselItems.length;
+        let carouselIndex = 0;
+
+        setInterval(() => {
+            carouselIndex = (carouselIndex + 1) % totalItems;
+            const offset = -carouselIndex * 100;
+            carouselContainer.style.transform = `translateX(${offset}%)`;
+        }, 3000);
+    }
+
+    function downloadPDF(url, filename) {
+        console.log("Iniciando download:", url, filename); // Log para verificação
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = filename;
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+    }
+    
+    function openWhatsApp() {
+        console.log("Redirecionando para o WhatsApp"); // Log para verificação
+        window.location.href = 'https://wa.me/19999670165';
+    }
+
+    // Executa a verificação de scroll e resize ao carregar a página
+    handleScroll();
     window.addEventListener('scroll', handleScroll);
+    window.addEventListener('resize', handleResize);
+
+    // Inicializa o carrossel de feedbacks
+    initCarousel();
 });

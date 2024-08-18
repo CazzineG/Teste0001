@@ -7,26 +7,32 @@ body {
     box-sizing: border-box;
     background-color: #f9f6f7;
     color: #3a3a3a;
+    font-size: 16px;
+    /* Base para rem */
 }
 
 .container {
-    padding-top: 13vh;
+    padding-top: 40vh;
+    /* Adapta o espaço no topo para acomodar a altura da foto */
     position: relative;
     z-index: 1;
 }
 
 .profile {
     text-align: center;
-    margin-bottom: 20px;
+    margin-bottom: 40px;
     position: relative;
 }
 
 .profile-photo-wrapper {
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100vh;
+    left: 50%;
+    width: 50vw;
+    /* Defina a largura padrão desejada */
+    height: 50vh;
+    /* Defina a altura padrão desejada */
+    transform: translateX(-50%);
+    /* Centraliza horizontalmente */
     z-index: -1;
     overflow: hidden;
     transition: filter 1s, transform 1s;
@@ -38,33 +44,48 @@ body {
     object-fit: cover;
 }
 
-.profile-photo.blurred {
-    filter: blur(2px);
-}
+/* CSS Mobile */
+@media (max-width: 1024px) {
+    .profile-photo-wrapper {
+        top: -50px;
+        /* Ajuste para posicionar mais acima na página */
+    }
 
-.profile-photo.shrink {
-    transform: scale(1);
-    transition: 0.1s;
+    .profile-photo.blurred {
+        filter: blur(2px);
+        /* Aplica desfoque */
+    }
 }
 
 .profile-name {
-    font-size: 30px;
+    font-size: 2rem;
+    /* 2 vezes o tamanho base */
     font-family: 'Playfair Display', serif;
     color: #6b4f4f;
     background: rgba(255, 255, 255, 0);
     padding: 10px;
     border-radius: 15px;
-    margin-top: 260px;
+    margin-top: 5vh;
+    /* Ajuste conforme necessário */
     position: relative;
     z-index: 1;
     text-shadow: none;
 }
 
+
+.profile-description {
+    font-size: 1.2rem;
+    color: #6b4f4f;
+    margin-top: 20px;
+    font-family: 'Poppins', sans-serif;
+}
+
 .profile-subtitle {
-    font-size: 18px;
-    padding: 10px;
+    font-size: 1.1rem;
     color: rgba(0, 0, 0, 0.678);
     margin-top: 10px;
+    font-family: 'Poppins', sans-serif;
+    padding: 10px;
 }
 
 .destino {
@@ -83,14 +104,28 @@ body {
     background-position: center;
     background-repeat: no-repeat;
     border-radius: 15px;
-    margin: 20px auto 30px auto;
+    margin: 20px auto;
     box-shadow: none;
     text-align: center;
     position: relative;
     transition: transform 0.3s, border-color 0.3s;
     box-sizing: border-box;
-    width: calc(100% - 20px);
-    height: 200px; /* Ajuste conforme necessário */
+    width: calc(100% - 40px);
+    /* Ajuste para manter o espaço entre os itens e as bordas */
+    height: 200px;
+    /* Ajuste conforme necessário */
+    border: 2px solid #E86583;
+    /* Borda rosa igual aos botões */
+}
+
+.option.catalogo,
+.option.curso1,
+.option.curso2,
+.option.agendamento,
+.option.feedbacks {
+    margin-top: 20px;
+    /* Adiciona espaço entre as opções */
+    margin-bottom: 40px;
 }
 
 .option.catalogo {
@@ -99,10 +134,14 @@ body {
 
 .option.curso1 {
     background-image: url('../images/mobile/image2.png');
+    margin-bottom: 40px;
+    /* Aumenta o espaçamento abaixo do curso 1 */
 }
 
 .option.curso2 {
     background-image: url('../images/mobile/image1.png');
+    margin-top: 40px;
+    /* Aumenta o espaçamento acima do curso 2 */
 }
 
 .option.agendamento {
@@ -121,27 +160,31 @@ body {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    border: 2px solid #E86583;
-    border-radius: 15px;
 }
 
 .section-title {
-    font-size: 24px;
+    font-size: 1.4rem;
+    /* Ajuste o tamanho da fonte para dispositivos móveis */
     font-family: 'Playfair Display', serif;
     color: #6b4f4f;
-    margin: 40px 0;
+    margin: 30px 0;
+    /* Aumenta a margem superior e inferior */
     position: relative;
     text-align: center;
+    padding: 0 10px;
+    /* Adiciona espaçamento interno para evitar que o texto encoste nas linhas */
 }
+
 
 .section-title::before,
 .section-title::after {
     content: '';
     position: absolute;
     top: 50%;
-    width: 15%;
+    width: 20%;
+    /* Ajuste o tamanho da linha com base na tela */
     height: 1px;
-    margin: 0% 7% 0% 7%;
+    margin: 0;
     background-color: #6b4f4f;
     transform: translateY(-50%);
 }
@@ -154,12 +197,42 @@ body {
     right: 0;
 }
 
+@media (max-width: 767px) {
+    .section-title {
+        font-size: 1.2rem;
+        /* Ajuste o tamanho da fonte para telas menores */
+        padding: 0 5px;
+        /* Reduz o espaçamento interno em telas menores */
+        margin: 0px 5% 0px 5%;
+    }
+
+    .section-title::before,
+    .section-title::after {
+        width: 15%;
+        /* Ajuste o tamanho da linha para telas menores */
+    }
+}
+
+@media (max-width: 480px) {
+    .section-title {
+        font-size: 1rem;
+        /* Ajuste o tamanho da fonte para dispositivos móveis muito pequenos */
+        padding: 0 2px;
+        /* Reduz ainda mais o espaçamento interno em dispositivos muito pequenos */
+    }
+
+    .section-title::before,
+    .section-title::after {
+        width: 20%;
+        /* Ajuste o tamanho da linha para dispositivos muito pequenos */
+    }
+}
+
 .button-container {
-    position: absolute;
-    bottom: -15px;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 1;
+    position: relative; /* Ajustado para evitar conflitos de posição */
+    margin-top: 175px; /* Espaço adicional para separar do conteúdo */
+    z-index: 1; /* Garante que o botão esteja acima dos elementos */
+    text-align: center; /* Centraliza o botão */
 }
 
 .action-button {
@@ -169,8 +242,9 @@ body {
     border-radius: 10px;
     padding: 10px 20px;
     cursor: pointer;
-    font-size: 16px;
+    font-size: 1rem;
     transition: background-color 0.3s, color 0.3s, transform 0.3s;
+    z-index: 2; /* Garante que o botão esteja acima da div pai */
 }
 
 .action-button:hover {
@@ -180,87 +254,30 @@ body {
 }
 
 .carousel {
-    display: flex;
     overflow: hidden;
-    width: 100%;
+    position: relative;
+}
+
+.carousel-container {
+    display: flex;
+    transition: transform 0.5s ease;
 }
 
 .carousel-item {
     flex: 0 0 100%;
-    padding: 10px;
     box-sizing: border-box;
     text-align: center;
+    padding: 20px;
+    /* Adiciona espaçamento interno aos itens do carrossel */
 }
 
 .carousel-item img {
     width: 100%;
     height: auto;
-    object-fit: cover;
 }
 
 .carousel-item p {
     font-style: italic;
     color: #3a3a3a;
     font-family: 'Playfair Display', serif;
-}
-
-.footer {
-    background-color: #f9f6f7;
-    padding: 20px;
-    text-align: center;
-    position: relative;
-    width: 100%;
-    box-sizing: border-box;
-    z-index: 1;
-}
-
-.footer-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-
-.footer-text {
-    font-size: 16px;
-    font-family: 'Poppins', sans-serif;
-    color: #3a3a3a;
-    margin-bottom: 10px;
-    line-height: 1.4;
-}
-
-.footer-credits {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-}
-
-.footer-credits p {
-    font-size: 14px;
-    font-family: 'Poppins', sans-serif;
-    color: #3a3a3a;
-    margin: 0;
-}
-
-.instagram-link {
-    display: flex;
-    align-items: center;
-    text-decoration: none;
-    color: #E86583;
-}
-
-.instagram-link:hover {
-    text-decoration: underline;
-}
-
-.instagram-icon {
-    width: 20px;
-    height: auto;
-    margin-left: 5px;
-    transition: transform 0.3s;
-}
-
-.instagram-link:hover .instagram-icon {
-    transform: scale(1.1);
 }
