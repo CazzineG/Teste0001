@@ -129,7 +129,7 @@ body {
 }
 
 .option.catalogo {
-    background-image: url('./images/mobile/image4.png');
+    background-image: url('images/mobile/image4.png');
 }
 
 .option.curso1 {
@@ -145,7 +145,7 @@ body {
 }
 
 .option.agendamento {
-    background-image: url('../images/mobile/image3.png');
+    background-image: url('..images/mobile/image3.png');
 }
 
 .option:hover {
