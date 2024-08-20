@@ -134,18 +134,21 @@ body {
 
 .option.curso1 {
     background-image: url('/images/mobile/image2.png');
+    background-image: url('.assets/images/mobile/image2.png');
     margin-bottom: 40px;
     /* Aumenta o espaçamento abaixo do curso 1 */
 }
 
 .option.curso2 {
     background-image: url('/images/mobile/image1.png');
+    background-image: url('assets/images/mobile/image1.png');
     margin-top: 40px;
     /* Aumenta o espaçamento acima do curso 2 */
 }
 
 .option.agendamento {
     background-image: url('/images/mobile/image3.png');
+    background-image: url('../assets/images/mobile/image3.png');
 }
 
 .option:hover {
