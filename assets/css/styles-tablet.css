@@ -137,7 +137,7 @@ body {
 }
 
 .option.catalogo {
-    background-image: url('./images/tablet/image4.png');
+    background-image: url('images/tablet/image4.png');
 }
 
 .option.curso1 {
@@ -155,7 +155,7 @@ body {
 }
 
 .option.agendamento {
-    background-image: url('../images/tablet/image3.png');
+    background-image: url('..//images/tablet/image3.png');
 }
 
 .option:hover {

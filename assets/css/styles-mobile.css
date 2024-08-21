@@ -145,7 +145,7 @@ body {
 }
 
 .option.agendamento {
-    background-image: url('..images/mobile/image3.png');
+    background-image: url('..//images/mobile/image3.png');
 }
 
 .option:hover {
