@@ -137,25 +137,25 @@ body {
 }
 
 .option.catalogo {
-    background-image: url('/images/tabletimage4.png');
+    background-image: url('images/tabletimage4.png');
 }
 
 .option.curso1 {
-    background-image: url('/images/tabletimage2.png');
+    background-image: url('images/tabletimage2.png');
     margin-bottom: 40px;
     /* Aumenta o espaçamento abaixo do curso 1 */
 
 }
 
 .option.curso2 {
-    background-image: url('/images/tabletimage1.png');
+    background-image: url('images/tabletimage1.png');
     margin-bottom: 40px;
     /* Aumenta o espaçamento abaixo do curso 1 */
 
 }
 
 .option.agendamento {
-    background-image: url('/images/tabletimage3.png');
+    background-image: url('images/tabletimage3.png');
 }
 
 .option:hover {
