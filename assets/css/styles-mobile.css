@@ -116,6 +116,8 @@ body {
     /* Ajuste conforme necessário */
     border: 2px solid #E86583;
     /* Borda rosa igual aos botões */
+    overflow: hidden; /* Garante que a imagem não ultrapasse os limites da div */
+
 }
 
 .option.catalogo,
@@ -129,23 +131,19 @@ body {
 }
 
 .option.catalogo {
-    background-image: url('images/mobileimage4.png');
 }
 
 .option.curso1 {
-    background-image: url('images/mobileimage2.png');
     margin-bottom: 40px;
     /* Aumenta o espaçamento abaixo do curso 1 */
 }
 
 .option.curso2 {
-    background-image: url('images/mobileimage1.png');
     margin-top: 40px;
     /* Aumenta o espaçamento acima do curso 2 */
 }
 
 .option.agendamento {
-    background-image: url('images/mobileimage3.png');
 }
 
 .option:hover {
@@ -156,6 +154,8 @@ body {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    border-radius: 15px; /* Certifique-se de que a borda arredondada seja aplicada à imagem */
+
 }
 
 .section-title {
@@ -225,10 +225,12 @@ body {
 }
 
 .button-container {
-    position: relative; /* Ajustado para evitar conflitos de posição */
-    margin-top: 175px; /* Espaço adicional para separar do conteúdo */
-    z-index: 1; /* Garante que o botão esteja acima dos elementos */
-    text-align: center; /* Centraliza o botão */
+    position: absolute;
+    bottom: -22px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+    top: 80%;
 }
 
 .action-button {
@@ -238,9 +240,9 @@ body {
     border-radius: 10px;
     padding: 10px 20px;
     cursor: pointer;
-    font-size: 1rem;
+    font-size: 18px;
     transition: background-color 0.3s, color 0.3s, transform 0.3s;
-    z-index: 2; /* Garante que o botão esteja acima da div pai */
+    display: inline-block; /* Garante que o botão seja exibido corretamente */
 }
 
 .action-button:hover {

@@ -124,6 +124,10 @@ body {
     /* Aumenta a altura das divs */
     border: 2px solid #E86583;
     /* Borda rosa igual aos botões */
+    overflow: hidden; /* Garante que a imagem não ultrapasse os limites da div */
+    border-radius: 15px;
+
+
 }
 
 .option.catalogo,
@@ -137,25 +141,21 @@ body {
 }
 
 .option.catalogo {
-    background-image: url('images/tabletimage4.png');
 }
 
 .option.curso1 {
-    background-image: url('images/tabletimage2.png');
     margin-bottom: 40px;
     /* Aumenta o espaçamento abaixo do curso 1 */
 
 }
 
 .option.curso2 {
-    background-image: url('images/tabletimage1.png');
     margin-bottom: 40px;
     /* Aumenta o espaçamento abaixo do curso 1 */
 
 }
 
 .option.agendamento {
-    background-image: url('images/tabletimage3.png');
 }
 
 .option:hover {
@@ -165,7 +165,9 @@ body {
 .option img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: cover; /* Garante que a imagem preencha a div */
+    border-radius: 15px; /* Certifique-se de que a borda arredondada seja aplicada à imagem */
+
 }
 
 .section-title {
@@ -225,10 +227,10 @@ body {
 .button-container {
     position: absolute;
     bottom: -22px;
-    /* Ajusta o posicionamento dos botões */
     left: 50%;
     transform: translateX(-50%);
     z-index: 1;
+    top: 84%;
 }
 
 .action-button {
@@ -237,11 +239,10 @@ body {
     border: 2px solid #E86583;
     border-radius: 10px;
     padding: 10px 20px;
-    /* Ajustado para tablet */
     cursor: pointer;
     font-size: 18px;
-    /* Ajustado para tablet */
     transition: background-color 0.3s, color 0.3s, transform 0.3s;
+    display: inline-block; /* Garante que o botão seja exibido corretamente */
 }
 
 .action-button:hover {
